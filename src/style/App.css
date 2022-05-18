@@ -11,3 +11,16 @@
   color: var(--green);
   padding: 1rem;
 }
+
+.productPage {
+  display: flex;
+  flex-direction: row;
+}
+
+.productCard {
+  border-style: solid;
+  border-radius: 15px;
+  padding: 20px;
+  width: 30%;
+  margin: 20px;
+}

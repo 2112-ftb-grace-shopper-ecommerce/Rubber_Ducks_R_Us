@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import {
 //     getAllProducts
 // } 
@@ -10,14 +11,16 @@ const ProductList = (props) => {
     return (
         <>
             <h1>PRODUCTS</h1>
-            <div> {products.map(product =>
-                <div className='productCard' key={product.id}>
-                    <h3>{`${product.name}`}</h3>
-                    <p>{`${product.description}`}</p>
-                    <p>{`$${product.price}`}</p>
+                <div className='productPage'> {products.map(product =>
+                    <div className='productCard' key={product.id}>
+                        <Link to={`/products/${product.id}`}>
+                            <h3>{`${product.name}`}</h3>
+                        </Link>
+                        <p>{`${product.description}`}</p>
+                        <p>{`$${product.price}`}</p>
+                    </div>
+                )}
                 </div>
-            )}
-            </div>
         </>
 
 
