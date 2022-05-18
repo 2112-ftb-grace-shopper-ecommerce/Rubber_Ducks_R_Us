@@ -4,7 +4,8 @@ module.exports = {
   // for example, create a users.js file for a User model
   // and User: require('./user') here
     User: require('./user'),
-    Products: require('./products')
+    Products: require('./products'),
+    UserPrefs:require('./Userprefs')
 
 
 
@@ -15,3 +16,13 @@ module.exports = {
 // and use its database connectors
 // ie User.getUserById(), where user.js had a module.exports
 // that looked like this: module.exports = { getUserById, ... }
+module.exports = {
+  db,
+  ...require("./users"),
+  ...require("./userprefs"),
+  ...require("./merch"),
+  ...require("./payments"),
+  ...require("./orders"),
+  ...require("./blog"),
+  ...require("./products"),
+};
