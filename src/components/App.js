@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
 
 import ProductList from './products';
 import ProductDetails from './productDetails';
@@ -11,6 +12,11 @@ import ReviewsList from './allReviews';
 import AllProductsList from './allProducts';
 import AddProduct from './addProduct';
 import EditProduct from './editProduct';
+import Cart from '../Cart';
+import Home from "../Home";
+import Login from "../Login";
+import Products from "../Products";
+import Register from '../Register';
 // getAPIHealth is defined in our axios-services directory index.js
 // you can think of that directory as a collection of api adapters
 // where each adapter fetches specific info from our express server's /api route
@@ -79,11 +85,20 @@ const App = () => {
         <Navbar />
       </div>
       <p>API Status: {APIHealth} ***We can take this off whenever.***</p>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="#" element={<Products />} />
+          <Route path="#" element={<Register />} />
+          <Route path="#" element={<Login />} />
+          <Route path="#" element={<Cart />} />
+        </Routes>
+      </div>
       <Router>
         <Route exact path="/products">
           <ProductList />
         </Route>
-        <Route path='/products/:productId'>
+        <Route path="/products/:productId">
           <ProductDetails />
         </Route>
 
@@ -97,13 +112,13 @@ const App = () => {
         <Route path="/allUsers">
           <UsersList users={users} />
         </Route>
-        <Route exact path='/allProducts'>
+        <Route exact path="/allProducts">
           <AllProductsList products={products} />
         </Route>
-        <Route path='/allProducts/add'>
+        <Route path="/allProducts/add">
           <AddProduct />
         </Route>
-        <Route path='/allProducts/edit/:productId'>
+        <Route path="/allProducts/edit/:productId">
           <EditProduct />
         </Route>
       </Router>
