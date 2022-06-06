@@ -6,22 +6,18 @@ import { getAllActiveProducts } from "../../axios-services/products";
 
 const Home = () => {
 
-    const [products, setProducts] = useState([]);
     const [featuredProducts, setFeaturedProducts] = useState([]);
 
 
     useEffect(() => {
-        const getProductList = async () => {
+        const getFeaturedProducts = async () => {
             const products = await getAllActiveProducts();
-            setProducts(products);
             setFeaturedProducts(products.slice(0, 4))
         }
 
-        getProductList();
+        getFeaturedProducts();
     }, [])
 
-    // console.log(products)
-    // console.log(featuredProducts)
 
 
     return (

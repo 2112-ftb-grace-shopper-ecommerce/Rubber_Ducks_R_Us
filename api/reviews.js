@@ -16,4 +16,14 @@ reviewsRouter.get('/', async (req, res, next) => {
     }
 })
 
+reviewsRouter.get('/:productId', async (req, res, next) => {
+    try {
+        const {productId} = req.params;
+        const reviews = await Reviews.getReviewsByProductId(productId);
+        return res.send(reviews);
+    } catch (error) {
+        throw error;
+    }
+})
+
 module.exports = reviewsRouter

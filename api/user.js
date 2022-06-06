@@ -17,7 +17,8 @@ usersRouter.get('/', async (req, res, next) => {
   }
 })
 
-// register a user
+
+// REGISTER
 usersRouter.post('/register', async (req, res, next) => {
   const { email, username, password } = req.body;
   const _userByUsername = await User.getUserByUsername(username);

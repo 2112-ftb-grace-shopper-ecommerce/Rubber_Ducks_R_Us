@@ -45,17 +45,46 @@
   
   .productDetailsPage {
     display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
+  }
+
+  .detailedProductInfo {
+    display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
   }
   
   .productDetailsPage img {
-    width: 300px;
-    height: auto;
+    max-width: 300px;
     border-style: solid;
     border-radius: 10px;
     box-shadow: 3px 3px 2px gray;
     margin: 30px;
   }
+
+  .productDetailsPage button {
+    background-color: #94e1eb;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    padding: 0 20px;
+  }
   
-  
+  .reviewCard {
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 1px;
+    box-shadow: 1px 1px 2px gray;
+    padding: 10px;
+    margin: 10px;
+    max-width: 100%;
+    background-color:rgb(254, 249, 242);
+  }
+
+  .reviewCard h5, p {
+    margin: 0;
+  }

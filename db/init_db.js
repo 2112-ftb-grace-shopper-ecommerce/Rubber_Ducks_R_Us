@@ -173,9 +173,34 @@ async function populateInitialData() {
 
     const reviewsToCreate = [
       { writerId: 1, productId: 1, productName: 'Alpha Ducky', starRating: 5, body: 'This is literally the best duck ever made.' },
+      { writerId: 2, productId: 1, productName: 'Alpha Ducky', starRating: 4, body: 'one of my hobbies is coding. and when Im debugging this works great.' },
+      { writerId: 3, productId: 1, productName: 'Alpha Ducky', starRating: 4, body: 'talk about contentment!!!' },
+      { writerId: 4, productId: 1, productName: 'Alpha Ducky', starRating: 5, body: 'this rubber duck is top-notch.' },
+      { writerId: 1, productId: 1, productName: 'Alpha Ducky', starRating: 4, body: 'My terrier loves to play with it.' },
+      { writerId: 3, productId: 1, productName: 'Alpha Ducky', starRating: 5, body: 'I saw one of these in Cote dIvoire and I bought one.' },
       { writerId: 2, productId: 2, productName: 'Sister Ducky', starRating: 5, body: 'My 57 month old loved it! Would buy again!' },
+      { writerId: 1, productId: 2, productName: 'Sister Ducky', starRating: 4, body: 'I saw one of these in Haiti and I bought one.' },
+      { writerId: 3, productId: 2, productName: 'Sister Ducky', starRating: 3, body: 'My macaroni penguin loves to play with it.' },
+      { writerId: 4, productId: 2, productName: 'Sister Ducky', starRating: 3, body: 'My neighbor Montserrat has one of these. She works as a circus performer and she says it looks shriveled.' },
+      { writerId: 1, productId: 2, productName: 'Sister Ducky', starRating: 4, body: 'heard about this on jump-up radio, decided to give it a try' },
       { writerId: 3, productId: 3, productName: 'Baby Ducky', starRating: 1, body: 'Honestly so trash do not waste your money on this.' },
-      { writerId: 4, productId: 3, productName: 'Baby Ducky', starRating: 3, body: 'A good starting point for duck collectors but not the best.' }
+      { writerId: 2, productId: 3, productName: 'Baby Ducky', starRating: 2, body: 'talk about shame.' },
+      { writerId: 4, productId: 3, productName: 'Baby Ducky', starRating: 3, body: "i use it from now on when i'm in my safehouse." },
+      { writerId: 1, productId: 3, productName: 'Baby Ducky', starRating: 2, body: "i use it never when i'm in my hotel." },
+      { writerId: 4, productId: 3, productName: 'Baby Ducky', starRating: 3, body: 'A good starting point for duck collectors but not the best.' },
+      { writerId: 1, productId: 4, productName: 'Ducky Shirt', starRating: 5, body: 'This shirt works too well. It buoyantly improves my game by a lot.' },
+      { writerId: 2, productId: 4, productName: 'Ducky Shirt', starRating: 3, body: "Runs a bit large. Or maybe I just don't have enough big duck energy.." },
+      { writerId: 3, productId: 4, productName: 'Ducky Shirt', starRating: 4, body: 'My co-worker Matthew has one of these. He says it looks gigantic.' },
+      { writerId: 4, productId: 4, productName: 'Ducky Shirt', starRating: 5, body: 'this shirt is flirty.' },
+      { writerId: 2, productId: 5, productName: 'Ducky Hat', starRating: 4, body: "this hat, does exactly what it's suppose to do." },
+      { writerId: 3, productId: 5, productName: 'Ducky Hat', starRating: 5, body: 'My tyrannosaurus rex loves to play with it.' },
+      { writerId: 3, productId: 7, productName: 'Boomer Ducky', starRating: 4, body: 'this rubber duck is perplexed.' },
+      { writerId: 4, productId: 7, productName: 'Boomer Ducky', starRating: 1, body: 'talk about fury.' },
+      { writerId: 3, productId: 8, productName: 'Duck', starRating: 5, body: "Bought this duck and now it's my best friend" },
+      { writerId: 1, productId: 8, productName: 'Duck', starRating: 4, body: 'This is a really good duck.' },
+      { writerId: 4, productId: 8, productName: 'Duck', starRating: 1, body: 'Shipping got delayed by 3 weeks!! Box of dead ducks showed up on my doorstep. Lesson learned, do not buy live ducks online' },
+      { writerId: 2, productId: 8, productName: 'Duck', starRating: 4, body: 'My Shih-Tzu loves to play with it.' },
+      { writerId: 3, productId: 9, productName: 'Lucky Ducks Game', starRating: 4, body: 'Love this game! Play it every morning when I wake up' }
     ]
     const reviews = await Promise.all(reviewsToCreate.map(Reviews.createReview));
     console.log('Reviews created:', reviews);

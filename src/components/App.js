@@ -97,7 +97,7 @@ const App = () => {
             <ProductDetails />
           </Route>
           <Route exact path="/login">
-            <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <Login setIsLoggedIn={setIsLoggedIn} />
           </Route>
           <Route exact path="/register">
             <Register />

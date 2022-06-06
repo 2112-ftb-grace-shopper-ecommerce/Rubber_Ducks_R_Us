@@ -28,28 +28,21 @@ const AllProductsList = () => {
         <>
         { isAdmin === "true" ? <div>
             <h1>ALL PRODUCTS</h1>
+            <div className='actionButtons'>
+            <Link to='/admin'>
+                <button>Back</button>
+            </Link>
             <Link to='/allProducts/add'>
                 <button>Add New Product</button>
             </Link>
+            </div>
             <br />
             <div> {products.map(product =>
                 <div
                     key={product.id}
-                    style={{
-                        borderStyle: "solid",
-                        borderWidth: "2px",
-                        borderRadius: "5px",
-                        padding: "10px",
-                        margin: "10px",
-                        maxWidth: "40vw"
-                    }}
+                    className='adminProductCard'
                 >
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "space-evenly"
-                        }}>
+                    <div className='productCardButtons'>
                         <Link to={`/allProducts/edit/${product.id}`}>
                             <button>Edit</button>
                         </Link>
@@ -111,9 +104,6 @@ const AllProductsList = () => {
                 </div>
             )}
             </div>
-            <Link to='/admin'>
-                <button>Back</button>
-            </Link>
         </div> : <p>Administrator Access Required</p>}
         </>
 

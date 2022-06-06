@@ -14,7 +14,12 @@ const UsersList = (props) => {
     return (
         <>
         { isAdmin === "true" ? <div>
-            <h1>USERS</h1>
+            <h1>ALL USERS</h1>
+            <div className='actionButtons'>
+            <Link to='/admin'>
+                <button>Back</button>
+            </Link>
+            </div>
             <div> {users.map(user =>
                 <div
                     className='userCard'
@@ -68,9 +73,7 @@ const UsersList = (props) => {
                 </div>
             )}
             </div>
-            <Link to='/admin'>
-                <button>Back</button>
-            </Link>
+
         </div> : <p>Administrator Access Required</p>}
         </>
     )

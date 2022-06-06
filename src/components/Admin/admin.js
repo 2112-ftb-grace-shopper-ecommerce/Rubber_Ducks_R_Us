@@ -1,19 +1,23 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import './adminStyle.css'
 
 const Admin = () => {
-    
+
     return (
         <main>
-            <Link to='/allProducts'>
-            <button id="registerButton">All Products</button>
-            </Link>
-            <Link to='/allUsers'>
-            <button id="registerButton">All Users</button>
-            </Link>
-            <Link to='/allReviews'>
-            <button id="registerButton">All Reviews</button>
-            </Link>
+            <h1>Administrator Views</h1>
+            <div className='adminButtons'>
+                <Link to='/allProducts'>
+                    <button id="allProductsButton">All Products</button>
+                </Link>
+                <Link to='/allUsers'>
+                    <button id="allUsersButton">All Users</button>
+                </Link>
+                <Link to='/allReviews'>
+                    <button id="allReviewsButton">All Reviews</button>
+                </Link>
+            </div>
         </main>
     )
 }

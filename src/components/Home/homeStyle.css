@@ -44,6 +44,7 @@
 .featuredProductList {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 30px;
 }
 
@@ -63,7 +64,7 @@
     border-width: 1px;
     box-shadow: 2px 2px 2px gray;
     padding: 20px;
-    width: 180px;
-    margin: 10px;
+    width: 15%;
+    margin: 10px 25px;
     background-color: white;
   }

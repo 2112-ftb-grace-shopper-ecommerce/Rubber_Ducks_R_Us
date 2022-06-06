@@ -34,7 +34,7 @@ export const MenuItems = [
 ];
 
 if(isAdmin === "true") MenuItems.push({
-  title: "Admin",
+  title: "ADMIN",
   url: "/admin",
   className: "nav-links",
 })

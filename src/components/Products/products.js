@@ -28,13 +28,7 @@ const ProductList = () => {
 
   return (
     <div className='productPage'>
-      <h1
-        style={{
-          margin: '5px',
-          textAlign: 'center',
-          fontFamily: 'cursive',
-          fontSize: '3rem'
-        }}>PRODUCTS</h1>
+      <h1>PRODUCTS</h1>
       <select
         name='productCategory'
         id='productCategory'

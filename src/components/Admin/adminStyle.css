@@ -1,0 +1,71 @@
+h1 {
+    text-align: center;
+}
+
+.adminButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.adminButtons button {
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    margin: 0 20px;
+}
+
+.adminProductCard, .adminReviewCard {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 40vw;
+    background-color: white;
+}
+
+.editProductPage {
+    text-align: center;
+}
+
+.editProductPage button {
+    margin: 0 20px;
+}
+
+.editProductPage form {
+    text-align: left;
+}
+
+#updateProductDescription, #newProductDescription {
+    width: 95%;
+    height: 4rem;
+    word-wrap: break-word;
+}
+
+#updateProductPicture, #newProductPicture {
+    width: 95%;
+}
+
+.actionButtons button {
+    font-size: 1.2rem;
+    padding: 5px;
+    margin: 10px;
+}
+
+.productCardButtons,
+.actionButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.userCard {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    max-width: 40vw;
+    background-color: white;
+}

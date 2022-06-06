@@ -17,6 +17,8 @@ export async function register (userToRegister) {
             password: userToRegister.password
         })
         localStorage.setItem("token", data.token)
+        localStorage.setItem("isAdmin", data.user.isAdmin)
+        localStorage.setItem("username", data.user.username)
         return data
     }catch(err){
         console.error(err)
@@ -31,6 +33,7 @@ export async function login (userToLogin) {
         })
         localStorage.setItem("token", data.token)
         localStorage.setItem("isAdmin", data.user.isAdmin)
+        localStorage.setItem("username", data.user.username)
         return data
     }catch(err){
         console.error(err)   

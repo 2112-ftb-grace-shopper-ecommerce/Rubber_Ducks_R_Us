@@ -38,7 +38,7 @@ const AddProduct = () => {
     return (
         <>
             <h1>Add A New Product</h1>
-            <form>
+            <form className='adminProductCard'>
                 <label htmlFor='newProductName'>Name (required): </label>
                 <input
                     type='text'
@@ -53,7 +53,6 @@ const AddProduct = () => {
                     type='text'
                     id='newProductDescription'
                     name='newProductDescription'
-                    style={{ height: "3rem", width: "300px", overflowWrap: "break-word" }}
                     onChange={(event) => setNewProductDescription(event.target.value)}
                 />
                 <br />
@@ -119,6 +118,7 @@ const AddProduct = () => {
                 </select>
                 <br />
                 <br />
+                <div className='productCardButtons'>
                 <Link to='/allProducts'>
                     <button>Back</button>
                 </Link>
@@ -140,6 +140,7 @@ const AddProduct = () => {
 
                     }}
                 >Add Product</button>
+                </div>
             </form>
 
 
