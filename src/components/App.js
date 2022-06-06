@@ -13,15 +13,9 @@ import AllProductsList from "./Admin/allProducts";
 import AddProduct from "./Admin/addProduct";
 import EditProduct from "./Admin/editProduct";
 import Navbar from "./Navbar/Navbar";
-<<<<<<< HEAD
-import Search from './Navbar/search';
-import announcer from './Navbar/announcer';
-import Stripe from './Stripe-Checkout/Stripe'
-=======
 import Search from './Search/search';
 import Contact from "./contact";
 import Admin from "./Admin/admin"
->>>>>>> origin/main
 
 import { getAllUsers } from "../axios-services/user";
 import {
@@ -45,13 +39,6 @@ const App = () => {
     // follow this pattern inside your useEffect calls:
     // first, create an async function that will wrap your axios service adapter
     // invoke the adapter, await the response, and set the data
-<<<<<<< HEAD
-    // const getAPIStatus = async () => {
-    //   const { healthy } = await getAPIHealth();
-    //   setAPIHealth(healthy ? "api is up! :D" : "api is down :/");
-    // };
-=======
->>>>>>> origin/main
     const getProductList = async () => {
       const products = await getAllActiveProducts();
       setProducts(products);
@@ -81,10 +68,6 @@ const App = () => {
     // invoke it immediately after its declaration, inside the useEffect callback
     getProductList();
     getCart();
-<<<<<<< HEAD
-    // getAPIStatus();
-=======
->>>>>>> origin/main
     getUsersList();
     getProductsList();
     getReviewsList();
@@ -92,24 +75,12 @@ const App = () => {
 
   return (
     <div className="app-container">
-<<<<<<< HEAD
-
-=======
       <div className="bg-image" />
->>>>>>> origin/main
       <header>
         <Navbar isLoggedIn={isLoggedIn}/>
       </header>
       <main>
         <Router>
-<<<<<<< HEAD
-          <Route exact path="/search">
-            <Search />
-            </Route>
-          {/* <Route exact path="/cart">
-            <Stripe />
-          </Route> */}
-=======
         <Route exact path='/'>
           <Home />
         </Route>
@@ -119,7 +90,6 @@ const App = () => {
           <Route exact path="/contact">
             <Contact />
           </Route>
->>>>>>> origin/main
           <Route exact path="/products">
             <ProductList />
           </Route>

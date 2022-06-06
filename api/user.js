@@ -79,38 +79,6 @@ usersRouter.post('/login', async (req, res, next) => {
       token: token
     })
 
-<<<<<<< HEAD
-    } catch(error) {
-      throw error
-    }
-});
-  
-
-// edit a individual user's profile information 
-usersRouter.put("/:id", async (req, res, next) => {
-  try {
-    if (req.body.token) {
-      let user = await User.findByToken(req.body.token);
-      user.update(req.body.user);
-      res.send(user);
-    }
-    // if user is guest only let them change non critical info
-    else {
-      let user = await User.findByPk(req.params.id);
-      user.update({
-        addressLine1: req.body.user.addressLine1,
-        addressLine2: req.body.user.addressLine2,
-        city: req.body.user.city,
-        state: req.body.user.state,
-        zipcode: req.body.user.zipcode,
-      });
-      res.send(user);
-    }
-  } catch (error) {
-    next(error);
-  }
-});
-=======
   } catch (error) {
     throw error
   }
@@ -161,6 +129,5 @@ usersRouter.delete('/:userId', async (req, res, next) => {
   deletedUser.success = true;
   return res.send(deletedUser)
 })
->>>>>>> origin/main
 
 module.exports = usersRouter
