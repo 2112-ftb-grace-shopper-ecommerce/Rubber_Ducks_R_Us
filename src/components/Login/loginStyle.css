@@ -1,0 +1,52 @@
+.loginPage {
+    display: flex;
+    flex-direction: row;
+    margin: 80px;
+}
+
+.loginPage h2 {
+    font-size: 1.5rem;
+    margin: 0 1.5rem 2.5rem;
+}
+
+.loginSection {
+    padding: 0 30px;
+    border-right: 1px solid black;
+    font-size: 1.1rem;
+    width: 400px;
+}
+
+
+.loginPage button, .registerPage button {
+    background-color: #94e1eb;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    height: 2.2rem;
+    width: 80%;
+    font-size: 1.2rem;
+    margin: 30px 10% 0;
+}
+
+.loginPage button:hover , .registerPage button:hover{
+    background-color: #94b8bd;
+}
+
+.registerSection {
+    width: 400px;
+    padding: 0 30px;
+}
+
+.loginPage label, .registerPage label {
+    font-weight: 500;
+}
+
+.loginPage input, .registerPage input{
+    height: 2rem;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.registerPage{
+    font-size: 1.1rem;
+}

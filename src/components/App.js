@@ -1,25 +1,28 @@
-import React, { useState, useEffect, Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import ProductList from "./products";
-import ProductDetails from "./productDetails";
-import Login from "./login";
-import Register from "./register";
+import Home from "./Home/home";
+import ProductList from "./Products/products";
+import ProductDetails from "./Products/productDetails";
+import Login from "./Login/login";
+import Register from "./Login/register";
 import ShoppingCart from "./cart";
-import UsersList from "./allUsers";
-import ReviewsList from "./allReviews";
-import AllProductsList from "./allProducts";
-import AddProduct from "./addProduct";
-import EditProduct from "./editProduct";
+import UsersList from "./Admin/allUsers";
+import ReviewsList from "./Admin/allReviews";
+import AllProductsList from "./Admin/allProducts";
+import AddProduct from "./Admin/addProduct";
+import EditProduct from "./Admin/editProduct";
 import Navbar from "./Navbar/Navbar";
+<<<<<<< HEAD
 import Search from './Navbar/search';
 import announcer from './Navbar/announcer';
 import Stripe from './Stripe-Checkout/Stripe'
+=======
+import Search from './Search/search';
+import Contact from "./contact";
+import Admin from "./Admin/admin"
+>>>>>>> origin/main
 
-// getAPIHealth is defined in our axios-services directory index.js
-// you can think of that directory as a collection of api adapters
-// where each adapter fetches specific info from our express server's /api route
-import { getAPIHealth } from "../axios-services";
 import { getAllUsers } from "../axios-services/user";
 import {
   getAllActiveProducts,
@@ -29,24 +32,26 @@ import { getAllReviews } from "../axios-services/reviews";
 import { getCartProducts } from "../axios-services/cart";
 
 import "../style/App.css";
-import "../style/theme.css";
+
 
 const App = () => {
-  const [APIHealth, setAPIHealth] = useState("");
   const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [reviews, setReviews] = useState([]);
+  const [users, setUsers] = useState([])
+  const [reviews, setReviews] = useState([])
 
   useEffect(() => {
     // follow this pattern inside your useEffect calls:
     // first, create an async function that will wrap your axios service adapter
     // invoke the adapter, await the response, and set the data
+<<<<<<< HEAD
     // const getAPIStatus = async () => {
     //   const { healthy } = await getAPIHealth();
     //   setAPIHealth(healthy ? "api is up! :D" : "api is down :/");
     // };
+=======
+>>>>>>> origin/main
     const getProductList = async () => {
       const products = await getAllActiveProducts();
       setProducts(products);
@@ -76,7 +81,10 @@ const App = () => {
     // invoke it immediately after its declaration, inside the useEffect callback
     getProductList();
     getCart();
+<<<<<<< HEAD
     // getAPIStatus();
+=======
+>>>>>>> origin/main
     getUsersList();
     getProductsList();
     getReviewsList();
@@ -84,19 +92,34 @@ const App = () => {
 
   return (
     <div className="app-container">
+<<<<<<< HEAD
 
+=======
+      <div className="bg-image" />
+>>>>>>> origin/main
       <header>
-        <Navbar />
+        <Navbar isLoggedIn={isLoggedIn}/>
       </header>
       <main>
-        {/* <p>API Status: {APIHealth} ***We can take this off whenever.***</p> */}
         <Router>
+<<<<<<< HEAD
           <Route exact path="/search">
             <Search />
             </Route>
           {/* <Route exact path="/cart">
             <Stripe />
           </Route> */}
+=======
+        <Route exact path='/'>
+          <Home />
+        </Route>
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <Route exact path="/contact">
+            <Contact />
+          </Route>
+>>>>>>> origin/main
           <Route exact path="/products">
             <ProductList />
           </Route>
@@ -126,6 +149,9 @@ const App = () => {
           </Route>
           <Route path="/allProducts/edit/:productId">
             <EditProduct />
+          </Route>
+          <Route path="/admin">
+            <Admin />
           </Route>
         </Router>
       </main>

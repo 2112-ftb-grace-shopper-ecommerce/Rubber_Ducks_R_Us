@@ -20,7 +20,7 @@ import axios from "axios";
 
 export async function getAPIHealth() {
   try {
-    const { data } = await axios.get("https://localhost:4000/api/health");
+    const { data } = await axios.get("/api/health");
     return data;
   } catch (err) {
     console.error(err);

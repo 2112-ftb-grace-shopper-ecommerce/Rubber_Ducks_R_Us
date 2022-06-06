@@ -9,7 +9,6 @@ export async function getAllUsers() {
     }
   }
 
-
 export async function register (userToRegister) {
     try{
         const { data } = await axios.post('/api/users/register',{
@@ -30,12 +29,28 @@ export async function login (userToLogin) {
             username: userToLogin.username,
             password: userToLogin.password
         })
-
         localStorage.setItem("token", data.token)
+        localStorage.setItem("isAdmin", data.user.isAdmin)
         return data
     }catch(err){
         console.error(err)   
     }
 }
 
- 
+export async function updateUser (userId, updatedUserValues) {
+    try {
+        const { data } = await axios.patch(`api/users/${userId}`, updatedUserValues);
+        return data;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export async function deleteUser (userId) {
+    try {
+        const { data } = await axios.delete(`/api/users/${userId}`)
+        return data;
+    } catch (err) {
+        console.error(err);
+    }
+} 

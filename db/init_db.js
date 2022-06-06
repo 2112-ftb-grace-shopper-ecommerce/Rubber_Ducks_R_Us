@@ -76,6 +76,7 @@ async function buildTables() {
       id SERIAL PRIMARY KEY,
       "writerId" INTEGER REFERENCES users(id),
       "productId" INTEGER REFERENCES products(id),
+      "productName" VARCHAR(255) REFERENCES products(name),
       "starRating" INTEGER NOT NULL,
       body TEXT NOT NULL
     );
@@ -91,16 +92,6 @@ async function buildTables() {
       "cardName" VARCHAR(255) NOT NULL
     );
     `); console.log("payments")
-
-
-
-    //   CREATE TABLE orders (
-    //     id SERIAL PRIMARY KEY,
-    //     "userId" INTEGER REFERENCES users(id),
-    //     "cartId" INTEGER REFERENCES cart(id)
-    //   );
-
-    // );
 
     console.log("Finished building all tables");
 
@@ -151,7 +142,7 @@ async function populateInitialData() {
       { name: 'Alpha Ducky', description: 'This is the first rubber ducky to ever be created.', categoryId: 1, quantity: 100, price: 999, isActive: true, picture: productPicturesToCreate.AlphaDucky },
       { name: 'Sister Ducky', description: 'She is the sister of Alpha Ducky.', categoryId: 1, quantity: 100, price: 999, isActive: true, picture: productPicturesToCreate.SisterDucky },
       { name: 'Baby Ducky', description: 'Baby Duck Doo Doo doo doo doo doo..', categoryId: 1, quantity: 100, price: 799, isActive: true, picture: productPicturesToCreate.BabyDucky },
-      { name: 'Ducky Shirt', description: 'Crew neck t-shirt with ducky logo', categoryId: 2, quantity: 100, price: 1549, isActive: true, picture: productPicturesToCreate.DuckyShirt },
+      { name: 'Ducky Shirt', description: 'Crew neck t-shirt with ducky logo', categoryId: 2, quantity: 0, price: 1549, isActive: true, picture: productPicturesToCreate.DuckyShirt },
       { name: 'Ducky Hat', description: 'White cap with ducky logo', categoryId: 2, quantity: 100, price: 1999, isActive: true, picture: productPicturesToCreate.DuckyHat },
       { name: 'Ducky Umbrella', description: 'Large golf umbrella with ducky logos', categoryId: 3, quantity: 50, price: 2399, isActive: true, picture: productPicturesToCreate.DuckyUmbrella },
       { name: 'Boomer Ducky', description: 'This old ducky is no longer active.', categoryId: 1, quantity: 0, price: 999, isActive: false, picture: productPicturesToCreate.BoomerDucky },
@@ -181,10 +172,10 @@ async function populateInitialData() {
     console.log('Starting to create reviews...')
 
     const reviewsToCreate = [
-      { writerId: 1, productId: 1, starRating: 5, body: 'This is literally the best duck ever made.' },
-      { writerId: 2, productId: 2, starRating: 5, body: 'My 57 month old loved it! Would buy again!' },
-      { writerId: 3, productId: 3, starRating: 1, body: 'Honestly so trash do not waste your money on this.' },
-      { writerId: 4, productId: 3, starRating: 3, body: 'A good starting point for duck collectors but not the best.' }
+      { writerId: 1, productId: 1, productName: 'Alpha Ducky', starRating: 5, body: 'This is literally the best duck ever made.' },
+      { writerId: 2, productId: 2, productName: 'Sister Ducky', starRating: 5, body: 'My 57 month old loved it! Would buy again!' },
+      { writerId: 3, productId: 3, productName: 'Baby Ducky', starRating: 1, body: 'Honestly so trash do not waste your money on this.' },
+      { writerId: 4, productId: 3, productName: 'Baby Ducky', starRating: 3, body: 'A good starting point for duck collectors but not the best.' }
     ]
     const reviews = await Promise.all(reviewsToCreate.map(Reviews.createReview));
     console.log('Reviews created:', reviews);

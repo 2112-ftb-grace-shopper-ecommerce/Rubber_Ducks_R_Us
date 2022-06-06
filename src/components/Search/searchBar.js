@@ -17,11 +17,9 @@ const SearchBar = ({ searchQuery, setSearchQuery, onSubmit }) => {
                 onSubmit(e);
             }}
         >
-            <label htmlFor="header-search">
-                <span className="visually-hidden">
-                    Search Products
-                </span>
-            </label>
+                <h1 className="title">
+                    SEARCH
+                </h1>
             <input
                 value={searchQuery}
                 onInput={(e) => setSearchQuery(e.target.value)}

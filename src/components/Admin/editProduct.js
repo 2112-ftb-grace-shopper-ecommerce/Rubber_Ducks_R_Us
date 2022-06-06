@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductById, updateProduct } from '../axios-services/products';
-import { getAllCategories } from '../axios-services/categories';
+import { getProductById, updateProduct } from '../../axios-services/products';
+import { getAllCategories } from '../../axios-services/categories';
 import { Link } from 'react-router-dom';
 
 

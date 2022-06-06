@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProducts, deleteProduct } from '../axios-services/products';
+import { getAllProducts, deleteProduct } from '../../axios-services/products';
 
 
 
@@ -10,7 +10,7 @@ import { getAllProducts, deleteProduct } from '../axios-services/products';
 
 
 const AllProductsList = () => {
-
+    const isAdmin = localStorage.getItem("isAdmin")
     const [products, setProducts] = useState([]);
     const noImageUrl = 'https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?k=20&m=1216251206&s=170667a&w=0&h=A72dFkHkDdSfmT6iWl6eMN9t_JZmqGeMoAycP-LMAw4=';
 
@@ -26,7 +26,8 @@ const AllProductsList = () => {
 
     return (
         <>
-            <h1>PRODUCTS (Administrator View)</h1>
+        { isAdmin === "true" ? <div>
+            <h1>ALL PRODUCTS</h1>
             <Link to='/allProducts/add'>
                 <button>Add New Product</button>
             </Link>
@@ -110,6 +111,10 @@ const AllProductsList = () => {
                 </div>
             )}
             </div>
+            <Link to='/admin'>
+                <button>Back</button>
+            </Link>
+        </div> : <p>Administrator Access Required</p>}
         </>
 
     )
