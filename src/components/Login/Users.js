@@ -167,9 +167,9 @@ const updateUser = () => {
                     setEditZipCode(event.target.value)
                 }}
             />
-            <Link to='/login'>
-                <button>Update User Profile</button>
-            </Link>
+            {/* <Link to='/login'> */}
+                <button>User Profile</button>
+            {/* </Link> */}
         </form>
     )
 }

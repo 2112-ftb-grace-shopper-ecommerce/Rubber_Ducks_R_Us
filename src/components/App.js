@@ -96,11 +96,14 @@ const App = () => {
           <Route path="/products/:productId">
             <ProductDetails />
           </Route>
-          <Route exact path="/login">
+          {!isLoggedIn && <Route exact path="/login">
             <Login setIsLoggedIn={setIsLoggedIn} />
-          </Route>
+          </Route>}
           <Route exact path="/register">
             <Register />
+          {/* </Route>
+          <Route exact path="/users">
+            <Register /> */}
           </Route>
           <Route exact path="/cart">
             <ShoppingCart cartProducts={cartProducts} />

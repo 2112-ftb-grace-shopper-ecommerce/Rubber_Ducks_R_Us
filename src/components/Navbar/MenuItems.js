@@ -27,14 +27,20 @@ export const MenuItems = [
     className: "nav-links",
   },
   {
+    title: "User Profile",
+    url: "/user",
+    className: "nav-links",
+  },
+  {
     title: "Cart",
     url: "/cart",
     className: "nav-links",
   },
-];
+]
 
 if(isAdmin === "true") MenuItems.push({
   title: "ADMIN",
   url: "/admin",
   className: "nav-links",
 })
+
