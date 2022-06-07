@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { login } from "../../axios-services/user";
 import "./loginStyle.css"
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 
 const Login = (props) => {
   const { setIsLoggedIn } = props;
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  let history = useHistory();
 
   const userToLogin = {
     username: loginUsername,
@@ -15,6 +17,7 @@ const Login = (props) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    history.push('/products')
     const waitLogin = await login(userToLogin);
     if (!waitLogin) alert("Error logging in. Please try again");
     setLoginUsername("");
@@ -26,6 +29,7 @@ const Login = (props) => {
     localStorage.removeItem("token")
     localStorage.removeItem("isAdmin")
     localStorage.removeItem("username")
+    
     window.location.reload(false);
   }
 
@@ -56,14 +60,16 @@ const Login = (props) => {
           value={loginPassword}
           onChange={(event) => {
             setLoginPassword(event.target.value);
+            
           }}
         />
         <br />
         <br />
         <button id="loginButton">Log In</button>
-
+        
         <button className="loginButtons" onClick={(event) => {
           event.preventDefault()
+          history.push('/products')
           logout();
         }}>Logout</button>
       </form>

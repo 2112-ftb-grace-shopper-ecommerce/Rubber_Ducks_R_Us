@@ -40,6 +40,8 @@ export async function login (userToLogin) {
     }
 }
 
+
+// Edit User Profile
 export async function updateUser (userId, updatedUserValues) {
     try {
         const { data } = await axios.patch(`api/users/${userId}`, updatedUserValues);

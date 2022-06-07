@@ -1,5 +1,5 @@
 import React from 'react';
-import { deleteUser, updateUser } from '../../axios-services/user';
+import { updateUser } from '../../axios-services/user';
 import { Link } from 'react-router-dom';
 
 
@@ -39,8 +39,8 @@ const updateUser = () => {
             alert('Please complete all fields')
             return;
         }
-        const waitUpdate = await update(userToUpdate)
-        if (waitUpdate) alert(`Welcome, ${waitUpdate.user.username}. ${waitUpdate.message}`)
+        const waitEdit = await edit(userToEdit)
+        if (waitEdit) alert(`Welcome, ${waitEdit.user.editFirstName}. ${waitEdit.message}`)
         setEditFirstName('');
         setEditLastName('');
         setEditEmail('');

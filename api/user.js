@@ -85,7 +85,7 @@ usersRouter.post('/login', async (req, res, next) => {
   }
 });
 
-// UPDATE
+// UPDATE USER PROFILE
 usersRouter.patch('/:userId', async (req, res, next) => {
 
   try {
@@ -121,7 +121,41 @@ usersRouter.patch('/:userId', async (req, res, next) => {
   }
 })
 
+// UPDATE
+usersRouter.patch('/:userId', async (req, res, next) => {
 
+  try {
+    const { userId } = req.params;
+    const { email, username, isAdmin } = req.body;
+    const originalUser = await User.getUserByUserId(userId);
+
+    const updatedUserValues = {};
+
+    if (email) updatedUserValues.email = email;
+    if (username) updatedUserValues.username = username;
+    if (isAdmin !== undefined) updatedUserValues.isAdmin = isAdmin;
+
+    if (!originalUser) {
+      console.error({
+        name: 'NoUserError',
+        message: 'There is no user to update'
+      })
+    }
+
+    if (parseInt(originalUser.id) === parseInt(userId)) {
+      const updatedUser = await User.updateUser(userId, updatedUserValues);
+      return res.send(updatedUser)
+    } else {
+      console.error({
+        name: 'InvalidUpdate',
+        message: 'User update could not be completed'
+      });
+      return;
+    }
+  } catch (error) {
+    throw error;
+  }
+})
 
 // DELETE
 usersRouter.delete('/:userId', async (req, res, next) => {
