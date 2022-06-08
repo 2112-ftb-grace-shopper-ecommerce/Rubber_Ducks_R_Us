@@ -5,6 +5,13 @@
     
 }
 
+h2  {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10%;
+}
+
 .loginPage h2 {
     font-size: 1.5rem;
     margin: 0 1.5rem 2.5rem;
@@ -15,6 +22,7 @@
     border-right: 1px solid black;
     font-size: 1.1rem;
     width: 400px;
+    
 }
 
 
