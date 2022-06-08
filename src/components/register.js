@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { register } from '../../axios-services/user'
-import "./loginStyle.css"
+import { register } from '../axios-services/user'
 
 const Register = () => {
     // used reg as a prefix for these in case we need to differentiate them from login stuff
     const [regEmail, setRegEmail] = useState("")
     const [regUsername, setRegUsername] = useState("");
     const [regPassword, setRegPassword] = useState("");
+
 
     const userToRegister = {
         email: regEmail,
@@ -18,11 +18,6 @@ const Register = () => {
 
     const handleRegister = async (event) => {
         event.preventDefault()
-        
-        if (regUsername === '' || regPassword === '' || regEmail === '') {
-            alert('Please complete all fields')
-            return;
-        }
         const waitRegister = await register(userToRegister)
         if (waitRegister) alert(`Welcome, ${waitRegister.user.username}. ${waitRegister.message}`)
         setRegEmail('');
@@ -31,45 +26,39 @@ const Register = () => {
     }
 
     return (
-        <form  className="registerPage" onSubmit={handleRegister}>
-            <h2>Create New Account</h2>
-            <label>Email</label>
-            <br />
-            <input type={"text"} 
-                id='regEmailInput' 
+        <form className="loginButtons" onSubmit={handleRegister}>
+
+            <label>Email:</label>
+            <input type={"text"}
+                id='regEmailInput'
                 value={regEmail}
                 onChange={(event) => {
                     setRegEmail(event.target.value)
                 }}
-            />
-            <br />
-            <br />
-            <label>Username</label>
-            <br />
+                placeholder={"Enter email"} />
+
+            <label>Username:</label>
             <input type="text"
                 id='regUsernameInput'
                 value={regUsername}
                 onChange={(event) => {
                     setRegUsername(event.target.value)
                 }}
-            />
-            <br />
-            <br />
-            <label>Password</label>
-            <br />
+                placeholder={"Enter username"} />
+
+            <label>Password:</label>
             <input type="text"
                 id='regPasswordInput'
+                min="8"
                 value={regPassword}
                 onChange={(event) => {
                     setRegPassword(event.target.value)
                 }}
-            />
+                placeholder={"Enter password"} />
 
             <button>Register</button>
         </form>
     )
 }
-
-
 
 export default Register

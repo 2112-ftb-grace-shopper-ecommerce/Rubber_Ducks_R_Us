@@ -11,20 +11,21 @@ const ProductList = () => {
 
 
   useEffect(() => {
-    const getProductList = async () => {
-      const products = await getAllActiveProducts();
-      setProducts(products);
-      setProductsToDisplay(products)
-    }
-    const getCategoryList = async () => {
-      const categoryList = await getAllCategories();
-      setCategoryList(categoryList);
-    }
+
 
     getProductList();
     getCategoryList();
   }, [])
-
+  const getProductList = async () => {
+    const products = await getAllActiveProducts();
+    console.log("products", products);
+    setProducts(products);
+    setProductsToDisplay(products)
+  }
+  const getCategoryList = async () => {
+    const categoryList = await getAllCategories();
+    setCategoryList(categoryList);
+  }
 
   return (
     <div className='productPage'>

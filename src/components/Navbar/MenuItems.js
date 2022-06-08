@@ -26,11 +26,7 @@ export const MenuItems = [
     url: "/login",
     className: "nav-links",
   },
-  {
-    title: "User Profile",
-    url: "/user",
-    className: "nav-links",
-  },
+  
   {
     title: "Cart",
     url: "/cart",

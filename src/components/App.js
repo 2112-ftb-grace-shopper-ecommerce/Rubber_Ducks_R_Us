@@ -14,7 +14,7 @@ import AddProduct from "./Admin/addProduct";
 import EditProduct from "./Admin/editProduct";
 import Navbar from "./Navbar/Navbar";
 import Search from './Search/search';
-import Contact from "./contact";
+import ContactForm from "./contact";
 import Admin from "./Admin/admin"
 
 import { getAllUsers } from "../axios-services/user";
@@ -26,6 +26,7 @@ import { getAllReviews } from "../axios-services/reviews";
 import { getCartProducts } from "../axios-services/cart";
 
 import "../style/App.css";
+// import { User } from "../../db";
 
 
 const App = () => {
@@ -77,53 +78,50 @@ const App = () => {
     <div className="app-container">
       <div className="bg-image" />
       <header>
-        <Navbar isLoggedIn={isLoggedIn}/>
+        <Navbar isLoggedIn={isLoggedIn} />
       </header>
       <main>
         <Router>
-        <Route exact path='/'>
-          <Home />
-        </Route>
+          <Route exact path='/'>
+            <Home />
+          </Route>
           <Route exact path="/search">
             <Search />
           </Route>
           <Route exact path="/contact">
-            <Contact />
+            <ContactForm />
           </Route>
           <Route exact path="/products">
             <ProductList />
           </Route>
-          <Route path="/products/:productId">
+          <Route exact path="/products/:productId">
             <ProductDetails />
           </Route>
-          {!isLoggedIn && <Route exact path="/login">
+          <Route exact path="/login">
             <Login setIsLoggedIn={setIsLoggedIn} />
-          </Route>}
+          </Route>
           <Route exact path="/register">
             <Register />
-          {/* </Route>
-          <Route exact path="/users">
-            <Register /> */}
           </Route>
           <Route exact path="/cart">
             <ShoppingCart cartProducts={cartProducts} />
           </Route>
-          <Route path="/allReviews">
+          <Route exact path="/allReviews">
             <ReviewsList reviews={reviews} />
           </Route>
-          <Route path="/allUsers">
+          <Route exact path="/allUsers">
             <UsersList users={users} />
           </Route>
           <Route exact path="/allProducts">
             <AllProductsList products={products} />
           </Route>
-          <Route path="/allProducts/add">
+          <Route exact path="/allProducts/add">
             <AddProduct />
           </Route>
-          <Route path="/allProducts/edit/:productId">
+          <Route exact path="/allProducts/edit/:productId">
             <EditProduct />
           </Route>
-          <Route path="/admin">
+          <Route exact path="/admin">
             <Admin />
           </Route>
         </Router>
